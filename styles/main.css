@@ -1,0 +1,39 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* background setup */
+  background: url('/assets/cityBg.webp') repeat-x center center;
+  background-size: cover;
+
+  /* create animation */
+  animation: scroll-bg 60s linear infinite;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+/* Make sure content stays above the overlay */
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keyframes for horizontal scroll */
+@keyframes scroll-bg {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2000px 0; /* adjust this based on your image width */
+  }
+}

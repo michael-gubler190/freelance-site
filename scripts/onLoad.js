@@ -14,9 +14,9 @@ window.addEventListener("scroll", () => {
 
   if (scrollY > 100) {
     navbar.classList.remove("bg-transparent");
-    navbar.classList.add("bg-gray-900");
+    navbar.classList.add("bg-purple-400");
   } else {
-    navbar.classList.remove("bg-gray-900");
+    navbar.classList.remove("bg-purple-400");
   }
 });
 

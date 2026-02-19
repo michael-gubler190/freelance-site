@@ -1,11 +1,14 @@
 [
     {
-        "id": 2,
-        "title": "Freelance Web Developer",
-        "employer": "Self employed",
-        "description": "As a freelance web developer in 2019, I built responsive, high-performance websites for small businesses and creatives. I focused on clean design, fast loading times, and smooth user experiences using HTML, CSS, and JavaScript. Each project involved close collaboration with clients to translate their ideas into functional, visually appealing websites deployed on platforms like Netlify and Vercel.",
-        "startYear": "2019",
-        "endYear": "2020"
+        "id": 1,
+        "title": "AI Engineer Intern",
+        "employer": "SME Inc, Solutions",
+        "description": "Developing an advanced AI-powered image compression system designed for efficient transmission over low-bandwidth networks. My work focuses on building and optimizing neural image codecs that learn compact, high-fidelity representations of visual data. This involves integrating autoencoders, quantization, and multi-threaded C++ backends to achieve real-time encoding and decoding. I also use Zstandard (Zstd) for fast compression and decompression, and apply AI upscaling techniques to restore image quality after transmission.",
+        "startYear": "2025",
+        "startMonth": "August",
+        "endYear": "2025",
+        "endMonth": "December",
+        "image": "https://media.licdn.com/dms/image/v2/D4E0BAQEeJGJk9n1PvQ/company-logo_200_200/company-logo_200_200/0/1693504659103?e=2147483647&v=beta&t=IT-BQ3kEq1EF5-2pBbS_3JrTDgPSIv35jK2Smv8Q-zU"
     },
 
     {
@@ -14,15 +17,21 @@
         "employer": "Uniqlo",
         "description": "As a Sales Associate, I helped customers find products that fit their needs while maintaining a welcoming and organized store environment. I developed strong communication and problem-solving skills by assisting with purchases, managing inventory, and ensuring a positive shopping experience for every customer.",
         "startYear": "2024",
-        "endYear": "2025"
+        "startMonth": "July",
+        "endYear": "2025",
+        "endMonth": "August",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UNIQLO_logo.svg/250px-UNIQLO_logo.svg.png"
     },
 
     {
-        "id": 1,
-        "title": "AI Engineer Intern",
-        "employer": "SME Inc, Solutions",
-        "description": "Developing an advanced AI-powered image compression system designed for efficient transmission over low-bandwidth networks. My work focuses on building and optimizing neural image codecs that learn compact, high-fidelity representations of visual data. This involves integrating autoencoders, quantization, and multi-threaded C++ backends to achieve real-time encoding and decoding. I also use Zstandard (Zstd) for fast compression and decompression, and apply AI upscaling techniques to restore image quality after transmission.",
-        "startYear": "2025",
-        "endYear": "Present"
+        "id": 2,
+        "title": "Freelance Web Developer",
+        "employer": "Self employed",
+        "description": "As a freelance web developer in 2019, I built responsive, high-performance websites for small businesses and creatives. I focused on clean design, fast loading times, and smooth user experiences using HTML, CSS, and JavaScript. Each project involved close collaboration with clients to translate their ideas into functional, visually appealing websites deployed on platforms like Netlify and Vercel.",
+        "startYear": "2019",
+        "startMonth": "June",
+        "endYear": "2020",
+        "endMonth": "January",
+        "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29kZXxlbnwwfHwwfHx8MA%3D%3D"
     }
 ]

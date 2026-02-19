@@ -5,123 +5,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michael Gubler | Software Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="scripts/particles.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="https://kit.fontawesome.com/f82827dda5.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+<!-- Overlay -->
+<div id="modalOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-40"></div>
+
+<!-- Slide-in Modal -->
+<div id="courseModal"
+     class="fixed top-0 left-0 h-full w-[90vw] sm:w-80 md:w-96 bg-white dark:bg-gray-900 
+            shadow-2xl transform -translate-x-full 
+            transition-transform duration-300 ease-in-out z-50 p-6 overflow-y-auto">
+
+  <button id="closeModal"
+          class="mb-6 text-gray-500 hover:text-black dark:hover:text-white">
+    ✕ Close
+  </button>
+
+  <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+  <img id="modalImage" class="w-full h-48 object-cover rounded-lg mb-4" />
+  <p id="modalDescription" class="text-gray-700 dark:text-gray-300"></p>
+
+</div>
+
+
+<body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100">
+  <!-- Background animation -->
+   <div id="particles-js" class="absolute inset-0"></div>
 
   <!-- Navbar -->
-  <header class="fixed top-0 w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm z-50 transition">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-      <a href="#">
-        <h1 class="text-xl font-bold">Michael Gubler</h1>
-      </a>
-      <nav class="space-x-6 hidden md:flex">
-        <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
-        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-        <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
-        <a href="#services" class="hover:text-blue-600 dark:hover:text-blue-400">Services</a>
-        <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-      </nav>
+  <nav id="navbar" class="transition-all duration-300 bg-transparent fixed w-full py-3 z-30">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+
+      <!-- Mobile: Name on left + hamburger on right -->
+      <a href="/" class="text-white font-bold text-lg md:hidden">Michael Gubler</a>
+
+      <!-- Hamburger button (mobile only) -->
+      <button id="mobile-menu-btn"
+              class="md:hidden text-white focus:outline-none p-2"
+              aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <!-- Desktop nav -->
+      <div class="items-center justify-between hidden w-full md:flex md:w-auto mx-auto md:order-1" id="navbar-sticky">
+        <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary">
+          <li>
+            <a href="/" class="block py-2 px-3 text-white bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0">Michael Gubler</a>
+          </li>
+          <li>
+            <a href="#education" class="block py-2 px-3 text-white bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Education</a>
+          </li>
+          <li>
+            <a href="#work-experience-anchor" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Work Experience</a>
+          </li>
+          <li>
+            <a href="#tech-skills-anchor" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Technical Skills</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div id="mobile-menu"
+           class="hidden w-full md:hidden mt-3 bg-black/80 backdrop-blur-sm rounded-xl overflow-hidden">
+        <ul class="flex flex-col font-medium text-white">
+          <li><a href="/" class="block py-3 px-5 hover:bg-white/10 border-b border-white/10">Michael Gubler</a></li>
+          <li><a href="#education" class="block py-3 px-5 hover:bg-white/10 border-b border-white/10" onclick="closeMobileMenu()">Education</a></li>
+          <li><a href="#work-experience-anchor" class="block py-3 px-5 hover:bg-white/10 border-b border-white/10" onclick="closeMobileMenu()">Work Experience</a></li>
+          <li><a href="#tech-skills-anchor" class="block py-3 px-5 hover:bg-white/10" onclick="closeMobileMenu()">Technical Skills</a></li>
+        </ul>
+      </div>
 
     </div>
-  </header>
+  </nav>
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 hero">
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hi, I’m Michael — Software Engineer</h2>
-    <h1>Under Development</h1>
-    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl mb-8">
-      I build scalable web, mobile, and AI-powered solutions that help businesses move faster.
-    </p>
-    <a href="#contact" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
-      Let’s Work Together
-    </a>
-  </section>
+  <!-- Master heading -->
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <section class="text-center px-4 sm:px-6 max-w-4xl w-full">
+      
+      <h1 class="relative inline-block text-4xl sm:text-5xl md:text-7xl font-bold text-white overflow-hidden">
+        <span class="relative">Michael Gubler</span>
+        <span class="absolute inset-0 bg-yellow-400 animate-wipe"></span>
+      </h1>
 
-  <!-- About -->
-  <section id="about" class="max-w-5xl mx-auto py-20 px-6 flex flex-col md:flex-row items-center gap-8">
-    <img
-      class="w-48 h-48 object-cover rounded-xl shadow-lg md:w-64 md:h-64"
-      src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ"
-      alt="coding"
-    />
-
-    <div class="text-center md:text-left">
-      <h3 class="text-3xl font-bold mb-6">
-        <span>About me</span>
-        
-        <div class="technologies-pills">
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Python</span>
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">TypeScript</span>
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Java</span>
-          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Golang</span>
+      <div class="relative inline-block overflow-hidden">
+        <div class="relative">
+          <p class="text-xl sm:text-2xl md:text-3xl my-10 md:my-20 leading-8 md:leading-10">
+            <span class="text-purple-400">Software engineer</span> and computer science student 
+            <span class="text-yellow-400">specializing in AI and machine learning</span>, with 
+            <span class="text-purple-400">hands-on experience building intelligent systems</span> and 
+            <span class="text-yellow-400">data-driven applications.</span>
+          </p>
+          <p class="text-xl sm:text-2xl md:text-3xl leading-8 md:leading-10">
+            Track record of <span class="text-purple-400">improving model efficiency,</span> 
+            <span class="text-yellow-400">reducing compression size,</span> and 
+            <span class="text-purple-400">troubleshooting deployment across platforms.</span>
+          </p>
         </div>
-      </h3>
-
-      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-        I’m a full-stack developer experienced in React, Flutter, SwiftUI, Golang, and AI engineering.
-        My focus is building fast, reliable, and beautiful apps — from prototypes to production systems.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- Experience -->
-  <section id="experience" class="bg-gray-100 dark:bg-gray-800 py-20 px-6">
-    <h3 class="text-3xl font-bold mb-10 text-center">Experience</h3>
-    <div id="work-experiences" class="max-w-5xl mx-auto space-y-8">
-
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="py-20 px-6">
-    <h3 class="text-3xl font-bold mb-10 text-center">Projects</h3>
-    <div id="projects-catalog" class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="max-w-6xl mx-auto py-20 px-6">
-    <h3 class="text-3xl font-bold mb-10 text-center">Services</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold mb-3">Web & Mobile Development</h4>
-        <p class="text-gray-600 dark:text-gray-300">
-          Modern, responsive, and scalable applications using React, Flutter, or SwiftUI.
-        </p>
+        <span class="absolute inset-0 bg-purple-400 animate-wipe"></span>
       </div>
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold mb-3">AI Integration</h4>
-        <p class="text-gray-600 dark:text-gray-300">
-          Custom models, NLP, and computer vision integrated into real-world apps.
-        </p>
-      </div>
-      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold mb-3">Backend Systems</h4>
-        <p class="text-gray-600 dark:text-gray-300">
-          High-performance APIs and distributed systems powered by Golang and Python.
-        </p>
+    </section>
+  </div>
+
+
+  <!-- Education -->
+  <div id="education"></div>
+  <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl typeHeading font-mono whitespace-nowrap overflow-hidden border-r-4 border-purple-400 w-0">Education</h1>
+
+    <!-- School info: stacked on mobile, side-by-side on md+ -->
+    <div class="my-10 md:my-20 flex flex-col sm:flex-row items-center gap-6 sm:gap-10 justify-between">
+      <div class="bg-white w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 p-3 flex-shrink-0" style="border-radius: 50%;">
+  <img src="assets/wcuLogo.webp" alt="West Chester University" class="w-full h-full object-contain rounded-full"/>
+</div>
+
+      <div class="text-center sm:text-left">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl">West Chester University of Pennsylvania</h1>
+        <br/>
+        <h2 class="text-lg sm:text-xl md:text-2xl">Bachelor of Science in Computer Science | GPA: 3.8/4.0</h2>
+        <br/>
+        <h3 class="text-base sm:text-lg md:text-xl">August 2023 - December 2026</h3>
       </div>
     </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-blue-600 text-white py-20 px-6 text-center">
-    <h3 class="text-3xl font-bold mb-6">Let’s Build Something Great</h3>
-    <p class="mb-8 text-lg">Get in touch to discuss your next project or collaboration.</p>
-    <a href="mailto:hello@michaelgubler.dev" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow hover:bg-gray-100 transition">
-      Contact Me
-    </a>
-  </section>
+    <h1 class="text-2xl sm:text-3xl md:text-4xl text-center underline text-yellow-400 font-bold">Relevant Coursework</h1>
+    <div class="max-w-6xl mx-auto px-0 sm:px-4 py-8 md:py-12">
+      <div id="course-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+      </div>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
-    © 2025 Michael Gubler. All rights reserved.
-  </footer>
+  <!-- Work experience -->
+  <div id="work-experience-anchor"></div>
+  <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <h1 class="typeHeading text-4xl sm:text-5xl md:text-6xl text-center font-mono whitespace-nowrap overflow-hidden border-r-4 border-purple-400 w-0">Work Experience</h1>
+    
+    <div id="work-experience" class="relative">
+      <!-- Vertical Line (desktop only) -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-yellow-400 h-full hidden md:block"></div>
+    </div>
+  </div>
 
-  <script type="module" src="scripts/onLoad.js"></script>
+
+  <!-- Technical Skills -->
+  <div id="tech-skills-anchor"></div>
+  <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <h1 class="typeHeading text-4xl sm:text-5xl md:text-6xl text-center font-mono whitespace-nowrap overflow-hidden border-r-4 border-purple-400 w-0">Technical Skills</h1>
+    
+    <div class="max-w-6xl mx-auto px-0 sm:px-4 py-8 md:py-12">
+      <div id="skills-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+  <script src="scripts/onLoad.js"></script>
+  <script src="scripts/loadWorkExperience.js"></script>
+  <script src="scripts/loadSkills.js"></script>
 </body>
 </html>

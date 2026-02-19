@@ -3,20 +3,15 @@
         "id": 3,
         "name": "Train Scheduling System",
         "description": "The AI Image Compression Codec is an advanced system that uses deep learning to efficiently compress and reconstruct images for low-bandwidth environments. It leverages a neural autoencoder to learn compact latent representations of visual data, enabling high compression ratios while preserving perceptual quality. Built with a C++ backend optimized for multithreading and Zstandard (Zstd) compression, the codec delivers fast, efficient encoding and decoding. AI-based quantization and upscaling modules further enhance image fidelity, making the system ideal for real-time image transmission, streaming, and edge AI applications. This project showcases how intelligent compression can outperform traditional codecs by adapting to the content of each image.",
-        "technologies": ["Java", "MySQL"]
-    },
-
-    {
-        "id": 2,
-        "name": "Reciplex",
-        "description": "The AI Image Compression Codec is an advanced system that uses deep learning to efficiently compress and reconstruct images for low-bandwidth environments. It leverages a neural autoencoder to learn compact latent representations of visual data, enabling high compression ratios while preserving perceptual quality. Built with a C++ backend optimized for multithreading and Zstandard (Zstd) compression, the codec delivers fast, efficient encoding and decoding. AI-based quantization and upscaling modules further enhance image fidelity, making the system ideal for real-time image transmission, streaming, and edge AI applications. This project showcases how intelligent compression can outperform traditional codecs by adapting to the content of each image.",
-        "technologies": ["TypeScript", "Golang", "MySQL", "OpenAI"]
+        "technologies": ["Java", "MySQL"],
+        "image": "https://www.riometro.org/ImageRepository/Document?documentID=3473"
     },
 
     {
         "id": 1,
         "name": "AI Image Compression Codec",
         "description": "The AI Image Compression Codec is an advanced system that uses deep learning to efficiently compress and reconstruct images for low-bandwidth environments. It leverages a neural autoencoder to learn compact latent representations of visual data, enabling high compression ratios while preserving perceptual quality. Built with a C++ backend optimized for multithreading and Zstandard (Zstd) compression, the codec delivers fast, efficient encoding and decoding. AI-based quantization and upscaling modules further enhance image fidelity, making the system ideal for real-time image transmission, streaming, and edge AI applications. This project showcases how intelligent compression can outperform traditional codecs by adapting to the content of each image.",
-        "technologies": ["Python", "PyTorch", "ONNX"]
+        "technologies": ["Python", "PyTorch", "ONNX"],
+        "image": "https://miro.medium.com/1*PehqKUEcLYjD80CN7rgR3A.png"
     }
 ]

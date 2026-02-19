@@ -1,0 +1,37 @@
+[
+    {
+        "id": 3,
+        "icon": "fa-solid fa-gear",
+        "category": "Technologies/Frameworks",
+        "skills": [
+            "Linux",
+            "Git"
+        ]
+    },
+
+    {
+        "id": 2,
+        "icon": "fa-solid fa-screwdriver-wrench",
+        "category": "Developer Tools",
+        "skills": [
+            "AWS",
+            "Google Firebase",
+            "Android Studio"
+        ]
+    },
+
+    {
+        "id": 1,
+        "icon": "fa-solid fa-code",
+        "category": "Programming Languages",
+        "skills": [
+            "Python",
+            "TypeScript",
+            "Java",
+            "Kotlin",
+            "GoLang",
+            "SQL",
+            "C++"
+        ]
+    }
+]

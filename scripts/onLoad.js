@@ -7,61 +7,112 @@ async function getLocalData(path) {
 }
 
 
-// Load in work experience
-const workExperiencesElement = document.getElementById("work-experiences");
-const workData = await getLocalData("../data/work.json");
+const navbar = document.getElementById("navbar");
 
-workData.forEach(work => {
-  const newWorkElement = `
-    <div class="flex flex-col md:flex-row md:items-center bg-white dark:bg-gray-900 p-6 rounded-xl shadow">
-      <div class="md:w-1/3 mb-4 md:mb-0 flex-shrink-0">
-        <h4 class="text-xl font-semibold">${work["title"]}</h4>
-        <h4 class="text-lg text-gray-500 dark:text-gray-400">${work["employer"]}</h4>
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
 
-        <br />
-
-        <p class="text-gray-500 dark:text-gray-400">${work["startYear"]} – ${work["endYear"]}</p>
-      </div>
-
-      <!-- Truncated description -->
-      <div class="md:w-2/3 text-gray-700 dark:text-gray-300 overflow-hidden text-ellipsis line-clamp-4">
-        ${work["description"]}
-      </div>
-    </div>
-
-  `;
-
-  workExperiencesElement.insertAdjacentHTML("afterbegin", newWorkElement);
+  if (scrollY > 100) {
+    navbar.classList.remove("bg-transparent");
+    navbar.classList.add("bg-gray-900");
+  } else {
+    navbar.classList.remove("bg-gray-900");
+  }
 });
-// END Work data
 
 
-// Load in projects
-const projectsElement = document.getElementById("projects-catalog");
-const projectData = await getLocalData("../data/projects.json");
 
-projectData.forEach(project => {
-  const newProjectElement = `
-    <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition h-70 flex flex-col">
-      <img src="https://via.placeholder.com/400x250" alt='Project ${project["id"]}' class="rounded-lg mb-4 flex-shrink-0">
-      <h4 class="text-xl font-semibold mb-2 flex-shrink-0">
-        <span>${project["name"]}</span>
-        <div>
-          ${project["technologies"].map(technology => `<span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">${technology}</span>`).join("")}
+const modal = document.getElementById("courseModal");
+const overlay = document.getElementById("modalOverlay");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalImage = document.getElementById("modalImage");
+const modalDescription = document.getElementById("modalDescription");
+
+const courses = [];
+
+function openModal(index) {
+  const course = courses[index];
+
+  modalTitle.textContent = course.course_name;
+  modalImage.src = course.image;
+  modalDescription.textContent = course.description || "";
+  
+  overlay.classList.remove("hidden");
+  requestAnimationFrame(() => {
+    modal.classList.remove("-translate-x-full");
+  });
+}
+
+
+function closeModal() {
+  modal.classList.add("-translate-x-full");
+
+  setTimeout(() => {
+    overlay.classList.add("hidden");
+  }, 300);
+}
+
+document.getElementById("closeModal").addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+
+async function loadCoursework() {
+  const courseworkList = document.getElementById("course-grid");
+  const courseworkData = await getLocalData("../data/coursework.json");
+  
+  courseworkData.forEach((course, index) => {
+    // const newCourse = `
+    //   <li><span class="font-bold ${index % 2 == 0 ? "text-purple-400" : "text-yellow-400"}">${course["course_name"]}</span> - ${course["course_description"]}</li>
+    // `;
+    courses.push(course);
+
+    const newCourse = `
+      <div onclick="openModal(${index})" class="relative overflow-hidden rounded-xl group transition-transform duration-300 hover:scale-95 hover:cursor-pointer">
+  
+        <!-- Image -->
+        <img
+          src="${course["image"]}"
+          class="w-full h-64 object-cover"
+          alt="${course["course_name"]}"
+        />
+        
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+        
+        <!-- Text -->
+        <div class="absolute bottom-4 left-4 right-4 text-white z-10">
+          <h3 class="text-lg font-semibold">
+            ${course["course_name"]}
+          </h3>
         </div>
-      </h4>
 
-      <!-- Truncate only the description -->
-      <p class="text-gray-600 dark:text-gray-300 my-3 overflow-hidden text-ellipsis line-clamp-3">
-        ${project["description"]}
-      </p>
+      </div>
 
-      <a href="#" class="text-blue-600 dark:text-blue-400 font-medium hover:underline flex-shrink-0 mt-auto">View Project →</a>
-    </div>
+    `;
+
+    courseworkList.insertAdjacentHTML("afterbegin", newCourse);
+  });
+}
+
+loadCoursework();
 
 
-  `;
+const headings = document.querySelectorAll(".typeHeading");
 
-  projectsElement.insertAdjacentHTML("afterbegin", newProjectElement);
-});
-// END Load projects
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+
+      const textLength = el.textContent.length;
+      el.style.setProperty("--characters", textLength);
+      el.style.setProperty("--type-width", textLength + "ch");
+
+      el.classList.add("active");
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+headings.forEach(h => observer.observe(h));

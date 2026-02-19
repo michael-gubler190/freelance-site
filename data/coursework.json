@@ -1,0 +1,43 @@
+[
+    {
+        "id": 0,
+        "course_name": "Software Engineering",
+        "course_description": "A capstone course in which I was put into a group of other software engineers and we built a product for a company over the course of a semester.",
+        "image": "https://action-point.com/wp-content/uploads/2014/10/Software-Development-Team.jpg"
+    },
+
+    {
+        "id": 4,
+        "course_name": "Database Management",
+        "course_description": "",
+        "image": "https://miro.medium.com/1*szBsfY6lp8A0jb1zOvJ0mw.jpeg"
+    },
+
+    {
+        "id": 5,
+        "course_name": "Android App Development",
+        "course_description": "",
+        "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7sL-a67r5pnEEw-e9fDthPzlJebYjwiULk2-MWS_Vi4NfuTQVicg5wsDxmBbaQxtLy-yZxspbHx6UmkHibD95NS8Ib_yR03-b6doBGKTMu-D7L0ykhNejgvWaDHOEISct955Row5SEtuNL7T3I-CgQHXmzqr3fVNxCrhrLa0bEOHeD_KNqu7OQNOlwQs/s1600/Android-Studio-Social.png"
+    },
+
+    {
+        "id": 3,
+        "course_name": "Big Data Engineering",
+        "course_description": "",
+        "image": "https://www.databricks.com/sites/default/files/2023-03/largest-open-source-apache-spark.png?v=1679038543"
+    },
+
+    {
+        "id": 2,
+        "course_name": "Applied Machine Learning",
+        "course_description": "",
+        "image": "https://media.geeksforgeeks.org/wp-content/uploads/20240217152156/Frame-13.png"
+    },
+
+    {
+        "id": 1,
+        "course_name": "Artifical Intelligence",
+        "course_description": "",
+        "image": "https://alphatarget.com/wp-content/uploads/2024/05/artificial-intelligence-1.jpg"
+    }
+]

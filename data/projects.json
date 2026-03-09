@@ -1,17 +1,34 @@
 [
     {
-        "id": 3,
-        "name": "Train Scheduling System",
-        "description": "The AI Image Compression Codec is an advanced system that uses deep learning to efficiently compress and reconstruct images for low-bandwidth environments. It leverages a neural autoencoder to learn compact latent representations of visual data, enabling high compression ratios while preserving perceptual quality. Built with a C++ backend optimized for multithreading and Zstandard (Zstd) compression, the codec delivers fast, efficient encoding and decoding. AI-based quantization and upscaling modules further enhance image fidelity, making the system ideal for real-time image transmission, streaming, and edge AI applications. This project showcases how intelligent compression can outperform traditional codecs by adapting to the content of each image.",
-        "technologies": ["Java", "MySQL"],
-        "image": "https://www.riometro.org/ImageRepository/Document?documentID=3473"
+        "id": 2,
+        "name": "Diabetes Classifier",
+        "description": "This project analyzes the Pima Indian Diabetes Dataset, a collection of health data from 768 women near Phoenix, Arizona, originally compiled by the National Institute of Diabetes and Digestive and Kidney Diseases. The dataset includes 8 medical attributes used to predict the onset of Type 2 diabetes. The goal of this project is to build a machine learning model that accurately classifies diabetes risk based on these clinical features.",
+        "technologies": ["Python", "Pandas", "Scikit-learn"],
+        "image": "https://www.niddk.nih.gov/-/media/Images/Health-Information/Diabetes/BloodGlucoseImage2Feb231200x800.jpg",
+        "link": "https://github.com/michael-gubler190/diabetes-classifier",
+        "startDate": "February 2026",
+        "endDate": "February 2026"
     },
 
+    {
+        "id": 3,
+        "name": "AutoShare",
+        "description": "AutoShare is a peer-to-peer car rental web application that connects car owners with people who need a vehicle for short-term use. Owners can list their cars with availability and pricing, while renters can browse listings, submit booking requests, and pay securely through the platform. The app manages the full rental lifecycle — from booking approval and payment processing to active rentals and post-trip reviews. Built with React, Spring Boot, and PostgreSQL, AutoShare demonstrates full-stack development with a focus on clean architecture, security, and real-world usability.",
+        "technologies": ["TypeScript (ReactJS)", "Java (Spring Boot)", "PostgreSQL", "AWS", "Redis", "Docker"],
+        "image": "https://www.enterprise.com/en/car-rental/rent-a-car-after-an-accident/who-pays/_jcr_content/root/container/container/container_1066138387/teaser_copy_copy_cop.coreimg.jpeg/1708383900016/header-who-pays.jpeg",
+        "link": "https://github.com/michael-gubler190/auto-share",
+        "startDate": "February 2026",
+        "endDate": "Present"
+    },
+    
     {
         "id": 1,
         "name": "AI Image Compression Codec",
         "description": "The AI Image Compression Codec is an advanced system that uses deep learning to efficiently compress and reconstruct images for low-bandwidth environments. It leverages a neural autoencoder to learn compact latent representations of visual data, enabling high compression ratios while preserving perceptual quality. Built with a C++ backend optimized for multithreading and Zstandard (Zstd) compression, the codec delivers fast, efficient encoding and decoding. AI-based quantization and upscaling modules further enhance image fidelity, making the system ideal for real-time image transmission, streaming, and edge AI applications. This project showcases how intelligent compression can outperform traditional codecs by adapting to the content of each image.",
-        "technologies": ["Python", "PyTorch", "ONNX"],
-        "image": "https://miro.medium.com/1*PehqKUEcLYjD80CN7rgR3A.png"
+        "technologies": ["Python", "PyTorch", "C++", "ONNX"],
+        "image": "https://miro.medium.com/1*PehqKUEcLYjD80CN7rgR3A.png",
+        "link": "#",
+        "startDate": "August 2025",
+        "endDate": "November 2025"
     }
 ]

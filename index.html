@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
   <title>Michael Gubler | Software Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/f82827dda5.js" crossorigin="anonymous"></script>
@@ -15,12 +16,12 @@
 
 <!-- Slide-in Modal -->
 <div id="courseModal"
-     class="fixed top-0 left-0 h-full w-[90vw] sm:w-80 md:w-96 bg-white dark:bg-gray-900 
+     class="fixed top-0 left-0 h-full w-[90vw] sm:w-80 md:w-96 bg-white dark:bg-purple-400 
             shadow-2xl transform -translate-x-full 
             transition-transform duration-300 ease-in-out z-50 p-6 overflow-y-auto">
 
   <button id="closeModal"
-          class="mb-6 text-gray-500 hover:text-black dark:hover:text-white">
+          class="mb-6 text-white hover:text-black dark:hover:text-white">
     ✕ Close
   </button>
 
@@ -58,12 +59,19 @@
           <li>
             <a href="/" class="block py-2 px-3 text-white bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0">Michael Gubler</a>
           </li>
+
           <li>
             <a href="#education" class="block py-2 px-3 text-white bg-brand rounded-sm md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Education</a>
           </li>
+
           <li>
             <a href="#work-experience-anchor" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Work Experience</a>
           </li>
+
+          <li>
+            <a href="#projects-anchor" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Projects</a>
+          </li>
+
           <li>
             <a href="#tech-skills-anchor" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Technical Skills</a>
           </li>
@@ -152,6 +160,42 @@
   </div>
 
 
+  <!-- Projects -->
+  <div id="projects-anchor"></div>
+  <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <h1 class="typeHeading text-4xl sm:text-5xl md:text-6xl text-center font-mono whitespace-nowrap overflow-hidden border-r-4 border-purple-400 w-0">Projects</h1>
+    
+    <div class="max-w-6xl mx-auto px-0 sm:px-4 py-8 md:py-12">
+      <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        
+        <a href="https://github.com/michael-gubler190" target="_blank" rel="noopener noreferrer">
+          <div class="relative overflow-hidden rounded-xl group transition-transform duration-300 hover:scale-95 hover:cursor-pointer">
+    
+            <!-- Image -->
+            <img
+              src="https://dailynurse.springerpub.com/wp-content/uploads/2025/09/Picture_2_Travel.jpeg"
+              class="w-full h-64 object-cover"
+              alt=""
+            />
+            
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            
+            <!-- Text -->
+            <div class="absolute bottom-4 left-4 right-4 text-white z-10">
+              <h3 class="text-lg font-semibold">
+                See all &#10095;
+              </h3>
+            </div>
+
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
   <!-- Technical Skills -->
   <div id="tech-skills-anchor"></div>
   <div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
@@ -188,6 +232,7 @@
   <script src="scripts/onLoad.js"></script>
   <script src="scripts/loadWorkExperience.js"></script>
   <script src="scripts/loadSkills.js"></script>
+  <script src="scripts/loadProjects.js"></script>
   <script src="scripts/particles.js"></script>
   <script src="scripts/app.js"></script>
 </body>

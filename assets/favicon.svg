@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#0f0f13"/>
+  <rect width="32" height="32" rx="8" fill="url(#bg-glow)" opacity="0.6"/>
+
+  <!-- Left bracket < -->
+  <polyline points="10,9 5,16 10,23" stroke="url(#purple-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right bracket > -->
+  <polyline points="22,9 27,16 22,23" stroke="url(#purple-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Slash / -->
+  <line x1="19" y1="8" x2="13" y2="24" stroke="url(#yellow-grad)" stroke-width="2.2" stroke-linecap="round"/>
+
+  <defs>
+    <linearGradient id="purple-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="yellow-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#0f0f13" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
